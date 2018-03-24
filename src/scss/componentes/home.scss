@@ -1,0 +1,13 @@
+.home{
+  .wrapper{
+    min-height: 0;
+  }
+  .movies__list{
+    .movies__item:last-child{
+      display: none;
+      @include  tablet-min{
+        display: inline-flex;
+      }
+    }
+  }
+}

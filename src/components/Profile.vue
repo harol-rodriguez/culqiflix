@@ -93,44 +93,44 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "./src/scss/variables";
-@import "./src/scss/media-queries";
-.profile{
-  &__content{
-    .wrapper{
-      min-height: calc(100vh - 175px);
-      @include tablet-min{
-        min-height: calc(100vh - 171px);
-      }
-    }
-  }
-  &__header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid rgba($c-dark, 0.05);
-    @include tablet-min{
-      padding: 29px 30px;
-    }
-    @include tablet-landscape-min{
-      padding: 29px 50px;
-    }
-    @include desktop-min{
-      padding: 29px 60px;
-    }
-  }
-    &__title{
-      margin: 0;
-      font-size: 16px;
-      line-height: 16px;
-      color: $c-dark;
-      font-weight: 300;
-      @include tablet-min{
-        font-size: 18px;
-        line-height: 18px;
-      }
-    }
-}
-</style>
+// <style lang="scss">
+// @import "./src/scss/variables";
+// @import "./src/scss/media-queries";
+// .profile{
+//   &__content{
+//     .wrapper{
+//       min-height: calc(100vh - 175px);
+//       @include tablet-min{
+//         min-height: calc(100vh - 171px);
+//       }
+//     }
+//   }
+//   &__header{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 20px;
+//     border-bottom: 1px solid rgba($c-dark, 0.05);
+//     @include tablet-min{
+//       padding: 29px 30px;
+//     }
+//     @include tablet-landscape-min{
+//       padding: 29px 50px;
+//     }
+//     @include desktop-min{
+//       padding: 29px 60px;
+//     }
+//   }
+//     &__title{
+//       margin: 0;
+//       font-size: 16px;
+//       line-height: 16px;
+//       color: $c-dark;
+//       font-weight: 300;
+//       @include tablet-min{
+//         font-size: 18px;
+//         line-height: 18px;
+//       }
+//     }
+// }
+// </style>

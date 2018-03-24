@@ -7,7 +7,9 @@ $desktop-width:  1200px;
 
 // Media
 @mixin mobile-only{
-	@media (max-width: #{$tablet-p-width - 1px}){
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 568px) {
 		@content;
 	}
 }

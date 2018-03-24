@@ -25,8 +25,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./src/scss/variables";
-@import "./src/scss/media-queries";
+@import "./src/scss/base/variables";
+@import "./src/scss/base/media-queries";
 
 .movie-popup{
   position: fixed;

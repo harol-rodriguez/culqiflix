@@ -5,28 +5,28 @@ let storage = {
   pageTitlePostfix: ' — ' + document.title,
   listTypes: [
     {
-      title: 'Popular Movies',
+      title: 'Peliculas Populares',
       shortTitle: 'Popular',
       query: 'popular',
       type: 'collection',
       isCategory: true
     },
     {
-      title: 'Top Rated Movies',
+      title: 'Peliculas Rankeadas',
       shortTitle: 'Top Rated',
       query: 'top_rated',
       type: 'collection',
       isCategory: true
     },
     {
-      title: 'Upcoming Movies',
+      title: 'Proximamente',
       shortTitle: 'Upcoming',
       query: 'upcoming',
       type: 'collection',
       isCategory: true
     },
     {
-      title: 'Now Playing Movies',
+      title: 'En Cartelera',
       shortTitle: 'Now Playing',
       query: 'now_playing',
       type: 'collection',

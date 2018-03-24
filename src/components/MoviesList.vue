@@ -5,14 +5,14 @@
         <h2 class="movies__title">{{ listTitle }}</h2>
         <span class="movies__results" v-if="!shortList">{{ countResults }}</span>
         <router-link v-if="shortList" class="movies__link" :to="{name: 'home-category', params: {category: category}}">
-          View All
+          Ver Todos
         </router-link>
       </header>
       <ul class="movies__list">
-        <movies-list-item class="movies__item" v-for="(movie, index) in movies" :movie="movie"></movies-list-item>
+        <movies-list-item class="movies__item" v-for="(movie, index) in movies" :movie="movie" v-show="showMovie(index)"></movies-list-item>
       </ul>
       <div class="movies__nav" v-if="!shortList" :class="{'is-hidden' : currentPage == pages}">
-        <button @click="loadMore" class="button">Load More</button>
+        <button @click="loadMore" class="button">Ver Mas</button>
       </div>
     </div>
     <i v-if="!listLoaded" class="loader"></i>
@@ -39,7 +39,7 @@ export default {
   components: { MoviesListItem },
   beforeRouteLeave (to, from, next) {
     if(from.name == 'search'){
-      eventHub.$emit('setSearchQuery', true);
+      eventHub.$emit('setSearchQuery', true)
     }
     next();
   },
@@ -55,19 +55,19 @@ export default {
   },
   computed: {
     pageTitle(){
-      return this.listTitle + storage.pageTitlePostfix;
+      return this.listTitle + storage.pageTitlePostfix
     },
     query(){
       return this.$route.params.query || '';
     },
     request(){
       if(this.mode == 'search'){
-        return `https://api.themoviedb.org/3/search/movie?api_key=${storage.apiKey}&language=en-US&query=${this.query}&page=${this.currentPage}`;
+        return `https://api.themoviedb.org/3/search/movie?api_key=${storage.apiKey}&language=es-ES&query=${this.query}&page=${this.currentPage}`;
       } else if(this.mode == 'collection') {
         let caregory = this.$route.params.category || this.category;
-        return `https://api.themoviedb.org/3/movie/${caregory}?api_key=${storage.apiKey}&language=en-US&page=${this.currentPage}`;
+        return `https://api.themoviedb.org/3/movie/${caregory}?api_key=${storage.apiKey}&language=es-ES&page=${this.currentPage}`;
       } else if(this.mode == 'favorite') {
-        return `https://api.themoviedb.org/3/account/${storage.userId}/favorite/movies?api_key=${storage.apiKey}&session_id=${storage.sessionId}&language=en-US&sort_by=created_at.desc&page=${this.currentPage}`;
+        return `https://api.themoviedb.org/3/account/${storage.userId}/favorite/movies?api_key=${storage.apiKey}&session_id=${storage.sessionId}&language=es-ES&sort_by=created_at.desc&page=${this.currentPage}`;
       }
     },
     countResults(){
@@ -79,14 +79,24 @@ export default {
     }
   },
   methods: {
+    showMovie (index) {
+      const self = this;
+      let nMovies = self.movies.length;
+      let nHide = nMovies%3;
+      if (index > nMovies-(1+nHide)) {
+      return false
+      }
+
+      return true
+    },
     fetchCategory(){
       axios.get(this.request)
       .then(function(resp){
           let data = resp.data;
           if(this.shortList){
-            this.movies = data.results.slice(0, 5);
+            this.movies = data.results.slice(0, 3);
             this.pages = 1;
-            this.results = 5;
+            this.results = 3;
           } else {
             this.movies = data.results;
             this.pages = data.total_pages;
@@ -115,7 +125,7 @@ export default {
       if(this.mode == 'favorite'){
         let promises = [], movies = [], pages, results;
         for(let i = 1; i <= this.currentPage; i++){
-          promises.push(axios.get(`https://api.themoviedb.org/3/account/${storage.userId}/favorite/movies?api_key=${storage.apiKey}&session_id=${storage.sessionId}&language=en-US&sort_by=created_at.desc&page=${i}`))
+          promises.push(axios.get(`https://api.themoviedb.org/3/account/${storage.userId}/favorite/movies?api_key=${storage.apiKey}&session_id=${storage.sessionId}&language=es-ES&sort_by=created_at.desc&page=${i}`))
         }
         axios.all(promises).then(function(results) {
           results.forEach(function(resp) {
@@ -155,95 +165,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "./src/scss/variables";
-@import "./src/scss/media-queries";
-.movies{
-  padding: 10px;
-  @include tablet-min{
-    padding: 15px;
-  }
-  @include tablet-landscape-min{
-    padding: 25px;
-  }
-  @include desktop-min{
-    padding: 30px;
-  }
-  &__header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 10px;
-    @include tablet-min{
-      padding: 23px 15px;
-    }
-    @include tablet-landscape-min{
-      padding: 16px 25px;
-    }
-    @include desktop-min{
-      padding: 8px 30px;
-    }
-  }
-    &__title{
-      margin: 0;
-      font-size: 16px;
-      line-height: 16px;
-      color: $c-dark;
-      font-weight: 300;
-      @include tablet-min{
-        font-size: 18px;
-        line-height: 18px;
-      }
-    }
-    &__results{
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-      color: rgba($c-dark, 0.5);
-    }
-    &__link{
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-      color: rgba($c-dark, 0.5);
-      text-decoration: none;
-      transition: color 0.5s ease;
-      &:after{
-        content: " →";
-      }
-      &:hover{
-        color: $c-dark;
-      }
-    }
-  &__list{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-  }
-    &__item{
-      padding: 10px;
-      width: 50%;
-      @include tablet-min{
-        padding: 15px;
-      }
-      @include tablet-landscape-min{
-        padding: 20px;
-        width: 25%;
-      }
-      @include desktop-min{
-        padding: 30px;
-        width: 20%;
-      }
-    }
-    &__nav{
-      padding: 25px 0;
-      text-align: center;
-      &.is-hidden{
-        display: none;
-      }
-    }
-}
-</style>
