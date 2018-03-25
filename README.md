@@ -1,11 +1,13 @@
-# The Movie Database App
+# Reto Front-End 2018
+Framework: VUE JS
+Herramientas: AXIOS, VUEX, VUE-ROUTER
 
-A Vue.js project.
-
-![](https://github.com/dmtrbrl/tmdb-app/blob/master/docs/demo.gif)
+Para observar el buscador tiene que hacer click en el logo para mostrar y ocultar barra de busqueda, falto un poco de tiempo para poder encontrar una mejor manera de colocar el buscador.
+Adicionalmente en el inicio muestra por categorías, en donde al ponder "ver todos" se observará el mockup siguiente:
+![](https://i.imgur.com/Vllqjj7.jpg) 
 
 ## Demo
-
+El proyecto se baso en un demo de TMDB hecho en vue, se puede observar acá:
 [TMDB Vue App](https://tmdb-vue-app.herokuapp.com/)
 
 ## Build Setup
@@ -20,9 +22,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-This app uses [history mode](https://router.vuejs.org/en/essentials/history-mode.html)
-
-## License
-[MIT](https://github.com/dmtrbrl/tmdb-app/blob/master/LICENSE)
