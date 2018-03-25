@@ -7,7 +7,15 @@
       </figure>
       <div class="movies-item__content">
         <p class="movies-item__title">{{ movie.title }}</p>
-        <p class="movies-item__genre" v-for="genre_id in movie.genre_ids">{{ nameGenres(genre_id)}}</p>
+        <div class="movies-item__genres">
+          <p class="movies-item__genres--item" v-for="genre_id in movie.genre_ids">{{ nameGenres(genre_id)}}</p>
+        </div>
+        <div class="movies-item__vote">
+          <img class="movies-item__vote--empty" src="~assets/heart.svg" alt="">
+          <div class="movies-item__vote--percent" :class="'movies-item__vote--percent'+Math.round(movie.vote_average/2)"> <img src="~assets/heart_full.svg" alt=""> </div>
+          <p>{{ movie.vote_average }}</p>
+        </div>
+        <div class="movies-item__btnDetalle btn1"> Detalle </div>
       </div>
     </a>
   </li>
@@ -47,6 +55,7 @@ export default {
     },
     openMoviePopup(id, event){
       eventHub.$emit('openMoviePopup', id, event);
+      console.log(this.movie)
     }
   }
 }

@@ -1,14 +1,14 @@
 .movies{
-  padding: 10px;
-  @include tablet-min{
-    padding: 15px;
-  }
-  @include tablet-landscape-min{
-    padding: 25px;
-  }
-  @include desktop-min{
-    padding: 30px;
-  }
+  // padding: 10px;
+  // @include tablet-min{
+  //   padding: 15px;
+  // }
+  // @include tablet-landscape-min{
+  //   padding: 25px;
+  // }
+  // @include desktop-min{
+  //   padding: 30px;
+  // }
   &__header{
     display: flex;
     align-items: center;

@@ -2,9 +2,9 @@
 /* Base  */
 @import "./src/scss/base/variables";
 @import "./src/scss/base/media-queries";
+@import "./src/scss/base/mixins";
 @import "./src/scss/base/fonts";
 @import "./src/scss/base/base";
-@import "./src/scss/base/mixins";
 
 // /* Capas */
 @import "capas/header";
@@ -16,3 +16,4 @@
 @import "componentes/home";
 @import "componentes/movieList";
 @import "componentes/moviesListItem";
+@import "componentes/movie";

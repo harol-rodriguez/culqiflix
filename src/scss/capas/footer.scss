@@ -15,8 +15,13 @@
         }
     }
     &__logo{
-        font-size: 20px;
-        text-align: left;
+        margin: auto;
+        p{
+            font-size: 20px;
+            text-align: left;
+            margin: 0;
+
+        }
     }
     &__social{
         text-align: center;

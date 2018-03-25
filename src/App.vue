@@ -3,7 +3,7 @@
     <header class="header">
       <img class="header__logo" src="/dist/icons/culqi_logo.png" @click="searchvisible = !searchvisible"></img>
       <div class="header__search" v-if="searchvisible">        
-        <input class="header__search-input" type="text" v-model.trim="searchQuery" @keyup.enter="search" @blur="search" placeholder="Search for a movie...">
+        <input class="header__search-input" type="text" v-model.trim="searchQuery" @keyup.enter="search" @blur="search" placeholder="Busca una película...">
         <img class="header__search-icon" src="/dist/icons/search-icon.svg"></img>
       </div>
     </header>
@@ -17,7 +17,7 @@
     </section>
     <footer class="footer">
       <div class="footer__content">
-        <div class="footer__logo">CULQI</div>
+        <div class="footer__logo"><p>CULQI</p></div>
         <div class="footer__social">
           <span class="footer__social--item">        
             <img src="/dist/icons/twitter.svg"></img>
@@ -38,12 +38,11 @@
 <script>
 import axios from 'axios'
 import storage from './storage.js'
-import Navigation from './components/Navigation.vue'
 import MoviePopup from './components/MoviePopup.vue'
 
 export default {
   name: 'app',
-  components: { Navigation, MoviePopup},
+  components: { MoviePopup},
   data(){
     return{
       searchvisible: false,

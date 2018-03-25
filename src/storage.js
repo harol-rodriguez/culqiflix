@@ -5,6 +5,13 @@ let storage = {
   pageTitlePostfix: ' — ' + document.title,
   listTypes: [
     {
+      title: 'En Cartelera',
+      shortTitle: 'Now Playing',
+      query: 'now_playing',
+      type: 'collection',
+      isCategory: true
+    },
+    {
       title: 'Peliculas Populares',
       shortTitle: 'Popular',
       query: 'popular',
@@ -26,20 +33,8 @@ let storage = {
       isCategory: true
     },
     {
-      title: 'En Cartelera',
-      shortTitle: 'Now Playing',
-      query: 'now_playing',
-      type: 'collection',
-      isCategory: true
-    },
-    {
       title: 'Search Results',
       query: 'search',
-      isCategory: false
-    },
-    {
-      title: 'Your Favorite Movies',
-      query: 'favorite',
       isCategory: false
     }
   ],

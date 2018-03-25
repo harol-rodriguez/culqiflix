@@ -35,7 +35,7 @@ export default {
   z-index: 20;
   width: 100%;
   height: 100vh;
-  background: rgba($c-dark, 0.98);
+  background: rgba($c-light, 0.9);
   -webkit-overflow-scrolling: touch;
   overflow: auto;
   &__box{
@@ -43,7 +43,7 @@ export default {
     max-width: 768px;
     position: relative;
     z-index: 5;
-    background: $c-dark;
+    background: $c-light;
     padding-bottom: 50px;
     @include tablet-min{
       padding-bottom: 0;

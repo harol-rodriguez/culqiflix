@@ -37,13 +37,6 @@ let routes = [
     }
   },
   {
-    name: 'profile',
-    path: '/profile',
-    components: {
-      'search-router-view': require('./components/Profile.vue')
-    }
-  },
-  {
     name: '404',
     path: '/404',
     components: {

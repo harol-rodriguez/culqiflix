@@ -55,9 +55,9 @@
     position: relative;
     padding: 50px 0 0;
     @include tablet-min{
-      //width: calc(100% - 40px);
+      width: calc(100% - 40px);
       max-width: 770px;
-      padding: 75px 0 0;
+      padding: 100px 0 0;
       margin: auto;
       position: relative;
     }
@@ -86,7 +86,19 @@
       color: $c-white;
     }
   }
-  
+  .btn{
+    &1{
+      font-size: 14px;
+      padding: 10px;
+      background: $c-yellow;
+      @include redondeado(2px,2px,2px,2px);
+      display: inline-block;
+      &:hover{
+        background: rgba($c-yellow,0.5);
+        color: $c-yellow;
+      }
+    }
+  }
   
   // router view transition
   .fade-enter-active, .fade-leave-active {
