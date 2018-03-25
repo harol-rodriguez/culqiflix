@@ -42,9 +42,12 @@ export default {
   methods: {
     nameGenres(id){
       const self = this
-      return self.$store.getters.get_genres.filter( function(obj) {
+      var rtn =  self.$store.getters.get_genres.filter( function(obj) {
         return obj.id == id
-      })[0].name
+      })[0]
+      if(rtn != undefined ){
+        return rtn.name;
+      }
     },
     poster() {
       if(this.movie.poster_path){

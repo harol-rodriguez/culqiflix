@@ -94,7 +94,8 @@ export default {
         "Aug", "Sep", "Oct",
         "Nov", "Dec"
       ];
-      return(partsDate[2]+' '+monthNames[partsDate[1]])
+      console.log(date)
+      return(partsDate[2]+' '+monthNames[partsDate[1]-1])
     },
     fetchMovie(id){
       axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${storage.apiKey}&language=es-ES`)
