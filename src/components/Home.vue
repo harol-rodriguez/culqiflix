@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <movies-list v-for="item in listTypes" v-if="item.isCategory" :type="'component'" :mode="'collection'" :category="item.query" :shortList="true"></movies-list>
+    <movies-list v-bind:key="item.id" v-for="item in listTypes" v-if="item.isCategory" :type="'component'" :mode="'collection'" :category="item.query" :shortList="true"></movies-list>
   </section>
 </template>
 
