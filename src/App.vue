@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header class="header">
-      <img class="header__logo" src="/dist/icons/culqi_logo.png" @click="searchvisible = !searchvisible"></img>
+      <img class="header__logo" src="dist/icons/culqi_logo.png" @click="searchvisible = !searchvisible"></img>
       <div class="header__search" v-if="searchvisible">        
         <input class="header__search-input" type="text" v-model.trim="searchQuery" @keyup.enter="search" @blur="search" placeholder="Busca una película...">
-        <img class="header__search-icon" src="/dist/icons/search-icon.svg"></img>
+        <img class="header__search-icon" src="dist/icons/search-icon.svg"></img>
       </div>
     </header>
     <movie-popup v-if="moviePopupIsVisible" @close="closeMoviePopup" :id="moviePopupId"></movie-popup>
@@ -20,13 +20,13 @@
         <div class="footer__logo"><p>CULQI</p></div>
         <div class="footer__social">
           <span class="footer__social--item">        
-            <img src="/dist/icons/twitter.svg"></img>
+            <img src="dist/icons/twitter.svg"></img>
           </span>
           <span class="footer__social--item">
-            <img src="/dist/icons/facebook.svg"></img>
+            <img src="dist/icons/facebook.svg"></img>
           </span>
           <span class="footer__social--item">
-            <img src="/dist/icons/instagram.svg"></img>
+            <img src="dist/icons/instagram.svg"></img>
           </span>
         </div>
         <div class="footer__copyright"><p>CULQI TRYOUTS</p></div>
