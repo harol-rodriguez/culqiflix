@@ -2,8 +2,8 @@
   <section class="movie">
     <div class="movie__container" v-if="movieLoaded">
       <figure class="movie__poster">
-        <img v-if="moviePosterSrc" class="movie__img" src="~assets/placeholder.png" v-img="moviePosterSrc">
-        <img v-if="!moviePosterSrc" class="movies-item__img is-loaded" src="~assets/no-image.png">
+        <img v-if="moviePosterSrc" class="movie__img" src="/static/placeholder.png" v-img="moviePosterSrc">
+        <img v-if="!moviePosterSrc" class="movies-item__img is-loaded" src="/static/no-image.png">
       </figure>
       <div class="movie__title">
         <h1 class="movie__title--text">
@@ -18,8 +18,8 @@
           <div class="movie__detail--rating">
             <div class="movie__detail--rating-value">
               <div class="movie__detail--ico">
-                <img class="heart-empty" src="~assets/rating.png" alt="">
-                <div class="heart-percent" :class="'heart-percent'+Math.round(movie.vote_average/2)"> <img src="~assets/heart_full.svg" alt=""> </div>
+                <img class="heart-empty" src="/static/rating.png" alt="">
+                <div class="heart-percent" :class="'heart-percent'+Math.round(movie.vote_average/2)"> <img src="/static/heart_full.svg" alt=""> </div>
               </div>
               <p class="movie__detail--value">{{ movie.vote_average }}</p>
             </div>
@@ -28,7 +28,7 @@
           <div class="movie__detail--rating">
             <div class="movie__detail--rating-value">
               <div class="movie__detail--ico">
-                <img src="~assets/popularity.png" alt="">
+                <img src="/static/popularity.png" alt="">
               </div>
               <p class="movie__detail--value">{{ Math.round(movie.popularity) }}</p>
             </div>
@@ -37,7 +37,7 @@
           <div class="movie__detail--rating">
             <div class="movie__detail--rating-value">
               <div class="movie__detail--ico">
-                <img src="~assets/votes.png" alt="">
+                <img src="/static/votes.png" alt="">
               </div>
               <p class="movie__detail--value">{{ movie.vote_count }}</p>
             </div>
@@ -49,7 +49,7 @@
         {{ movie.overview }}
       </div>
       <div class="movie__date">
-        <img src="~assets/calendar.svg" alt="">
+        <img src="/static/calendar.svg" alt="">
         <p>{{formatoFecha(movie.release_date)}}</p>
       </div>
     </div>
@@ -113,7 +113,7 @@ export default {
           this.movieLoaded = true;
           // Push state
           if(storage.createMoviePopup){
-            storage.moviePath = '/movie/' + id;
+            storage.moviePath = '/culqiflix/movie/' + id;
             history.pushState({ popup: true }, null, storage.moviePath);
             storage.createMoviePopup = false;
           }

@@ -50,6 +50,7 @@ let routes = [
 ];
 
 const router =  new VueRouter({
+  base: '/culqiflix',
   mode: 'history',
   routes,
   linkActiveClass: 'is-active'

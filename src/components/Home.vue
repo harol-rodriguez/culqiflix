@@ -17,7 +17,7 @@ export default {
     }
   },
   created(){
-    document.title = 'Reto 2018 Front-End TMDb';
+    document.title = 'Visor de Películas TMDb';
     storage.backTitle = document.title;
     const self = this;
     axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${storage.apiKey}&language=es-Es`).then(function(results){
