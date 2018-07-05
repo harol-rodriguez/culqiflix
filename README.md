@@ -1,4 +1,4 @@
-# Reto Front-End 2018
+# Buscador de Películas TmBD - VUEJS
 Framework: VUE JS
 Herramientas: AXIOS, VUEX, VUE-ROUTER
 
